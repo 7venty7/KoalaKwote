@@ -1,0 +1,49 @@
+{
+  "c11822d7-9043-44a6-bb67-c53d2f4c5e02": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1685/1.0.1685.3700/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://unisydneyedu.sharepoint.com/sites/SharePoint_Group17_Assignment2": {
+        "dataSources": {
+          "Accounts": {
+            "tableName": "96780ca6-6244-4631-90da-b78410944285"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Accounts"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "c11822d7-9043-44a6-bb67-c53d2f4c5e02"
+  },
+  "f2b4e92c-8f6b-45aa-bae9-a8792492cb89": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1677/1.0.1677.3637/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "f2b4e92c-8f6b-45aa-bae9-a8792492cb89"
+  }
+}

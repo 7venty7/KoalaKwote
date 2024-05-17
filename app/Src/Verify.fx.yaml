@@ -1,0 +1,125 @@
+"Verify As screen.'printableLayout_A4Landscape_ver1.0'":
+    Fill: =Color.White
+    Height: =794
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    Width: =1123
+
+    Header2_7 As Header:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =75
+        IsLogoVisible: =false
+        IsProfilePictureVisible: =false
+        OnSelectLogo: =false
+        Title: =App.ActiveScreen.Name
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =3
+
+    ButtonCanvas8_2 As Button:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =36
+        OnSelect: =Navigate(Home)
+        Text: ="Back to Home"
+        Width: =124
+        X: =980
+        Y: =21
+        ZIndex: =10
+
+    Container1_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =411
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        X: =311
+        Y: =230
+        ZIndex: =11
+
+        "TextInputCanvas1 As 'Text input'":
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            Width: =320
+            X: =81
+            Y: =173
+            ZIndex: =1
+
+        "TextInputCanvas2 As 'Text input'":
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            Width: =320
+            X: =81
+            Y: =243
+            ZIndex: =2
+
+        TextCanvas4_4 As Text:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =35
+            Text: ="Email"
+            Width: =320
+            X: =81
+            Y: =138
+            ZIndex: =3
+
+        TextCanvas4_5 As Text:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =35
+            Text: ="Reference Number"
+            Width: =320
+            X: =81
+            Y: =205
+            ZIndex: =4
+
+        ButtonCanvas8_3 As Button:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            OnSelect: |-
+                =Set(userrolevalue,LookUp(Accounts,Email=TextInputCanvas1.Value And 'Reference Number'=TextInputCanvas2.Value));
+                If(IsBlankOrError(userrolevalue), Notify("Incorrect email or reference number"), Navigate(Dashboard));
+            Text: ="Log In"
+            Width: =96
+            X: =193
+            Y: =298
+            ZIndex: =5
+
+        Label1 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Height: =70
+            Size: =21
+            Text: ="Login into your application"
+            Width: =358
+            X: =62
+            Y: =53
+            ZIndex: =6
+
+    Image1_1 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =103
+        Image: ='Screenshot_2024-05-08_at_12.40.34-removebg-preview'
+        Width: =111
+        X: =1012
+        Y: =691
+        ZIndex: =12
+

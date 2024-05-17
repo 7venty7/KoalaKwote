@@ -1,0 +1,29 @@
+"'b823a875-4dec-4a04-9800-b6cddc333dd1' As TestSuite":
+    Description: =""
+    DisplayName: ="Returning User"
+
+    "'6726ad7b-40bf-40ae-9d8c-2519273ee5d9' As TestCase":
+        Description: =""
+        DisplayName: ="Log in"
+
+        Step1 As TestStep:
+            Description: ="Select(ButtonCanvas2_1)"
+            Value: =Select(ButtonCanvas2_1)
+
+        Step5 As TestStep:
+            Description: ="New step"
+            Value: =Select(TextInputCanvas1)
+
+        Step2 As TestStep:
+            Description: ="Set(TextInputCanvas1, ""johnsmith@gmail.com"")"
+            Screen: =Verify
+            Value: =SetProperty( TextInputCanvas1.Value, "johnsmith@gmail.com" )
+
+        Step3 As TestStep:
+            Description: ="Set(TextInputCanvas2, ""2009"")"
+            Value: =Set(TextInputCanvas2, "2009")
+
+        Step4 As TestStep:
+            Description: ="Select(ButtonCanvas8_3)"
+            Value: =Select(ButtonCanvas8_3)
+

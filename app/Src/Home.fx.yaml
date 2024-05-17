@@ -1,0 +1,91 @@
+"Home As screen.'printableLayout_A4Landscape_ver1.0'":
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =794
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    Width: =1123
+
+    TextCanvas1 As Text:
+        Align: ='TextCanvas.Align'.Start
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontColor: =
+        Height: =72
+        Size: =50
+        Text: ="Your Insurance Journey"
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Bold
+        Width: =748
+        Wrap: =true
+        X: =63
+        Y: =309
+        ZIndex: =4
+
+    TextCanvas2 As Text:
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =56
+        Size: =30
+        Text: ="One Website. Made Easy."
+        Width: =354
+        X: =63
+        Y: =381
+        ZIndex: =5
+
+    ButtonCanvas2 As Button:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        FontSize: |
+            =30
+        Height: =58
+        OnSelect: =Navigate(Details)
+        Text: ="Get a Quotation"
+        Width: =418
+        X: =63
+        Y: =453
+        ZIndex: =9
+
+    ButtonCanvas2_1 As Button:
+        Appearance: ='ButtonCanvas.Appearance'.Transparent
+        BasePaletteColor: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        FontItalic: =true
+        FontSize: =15
+        Height: =42
+        OnSelect: =Navigate(Verify)
+        Text: ="Already have an account? Click here to login."
+        Width: =418
+        X: =63
+        Y: =528
+        ZIndex: =10
+
+    Header2 As Header:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =75
+        IsLogoVisible: =false
+        IsProfilePictureVisible: =false
+        OnSelectLogo: =false
+        Title: =App.ActiveScreen.Name
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =11
+
+    Image1 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =376
+        Image: ='Screenshot_2024-05-08_at_12.40.34-removebg-preview'
+        Width: =405
+        X: =662
+        Y: =221
+        ZIndex: =12
+

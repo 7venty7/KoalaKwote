@@ -1,0 +1,16 @@
+"'419bf94a-f888-49e5-9377-f18fe79c3b57' As TestSuite":
+    Description: =""
+    DisplayName: ="New User"
+
+    "'b87215c5-96db-45e7-a2ea-a12f517fa1c0' As TestCase":
+        Description: =""
+        DisplayName: ="New Form"
+
+        Step1 As TestStep:
+            Description: ="Select(ButtonCanvas2)"
+            Value: =Select(ButtonCanvas2)
+
+        Step2 As TestStep:
+            Description: ="SetProperty("
+            Value: =SetProperty(FirstNameValue_3.Value, "John")
+

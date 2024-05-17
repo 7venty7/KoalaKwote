@@ -1,0 +1,663 @@
+"Details As screen.'printableLayout_A4Landscape_ver1.0'":
+    Fill: =Color.White
+    Height: =794
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    Width: =1123
+
+    TextCanvas1_14 As Text:
+        Align: ='TextCanvas.Align'.Start
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontColor: =
+        Height: =72
+        Size: =50
+        Text: ="Let Us Get"
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Bold
+        Width: =278
+        Wrap: =true
+        X: =63
+        Y: =309
+        ZIndex: =4
+
+    TextCanvas1_15 As Text:
+        Align: ='TextCanvas.Align'.Start
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontColor: =
+        Height: =72
+        Size: =50
+        Text: ="To Know You"
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Bold
+        Width: =353
+        Wrap: =true
+        X: =63
+        Y: =381
+        ZIndex: =5
+
+    ButtonCanvas3_5 As Button:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =32
+        OnSelect: |-
+            =
+            Set(quote, 1000 + If(StateValue_3.Selected.Value="NSW" Or StateValue_3.Selected.Value="VIC", 200, 0) + ((2024 - Year(DateOfBirthValue_3.SelectedDate)) * 10) * If(PlanValue_3.Selected.Value="Premium", 2, 1));
+            
+            Collect(Accounts, {
+                'First Name': FirstNameValue_3.Value, 'Last Name': LastNameValue_3.Value, Email: EmailValue_3.Value, 'Phone Number': PhoneNumberValue_3.Value, State: StateValue_3.Selected, Gender: GenderValue_3.Selected, 'Date of Birth':DateOfBirthValue_3.SelectedDate, Plan:PlanValue_3.Selected, 'Reference Number': Text(RandBetween(1000, 9999)), Quote: quote
+            });
+            
+            Set(signeduprefnum, LookUp(Accounts, Email=EmailValue_3.Value));
+            
+            Navigate(Result);
+        Text: ="Submit Details"
+        Width: =166
+        X: =668
+        Y: =573
+        ZIndex: =6
+
+    TextCanvas1_16 As Text:
+        Align: ='TextCanvas.Align'.Start
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontColor: =
+        Height: =72
+        Size: =50
+        Text: ="Better"
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Bold
+        Width: =353
+        Wrap: =true
+        X: =63
+        Y: =453
+        ZIndex: =7
+
+    Header2_13 As Header:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =75
+        IsLogoVisible: =false
+        IsProfilePictureVisible: =false
+        OnSelectLogo: =false
+        Title: =App.ActiveScreen.Name
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =8
+
+    ButtonCanvas8_9 As Button:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =36
+        OnSelect: =Navigate(Home)
+        Text: ="Back to Home"
+        Width: =124
+        X: =980
+        Y: =21
+        ZIndex: =9
+
+    Form1_4 As form.PowerApps_CoreControls_Form:
+        BorderColor: =App.Theme.Colors.Darker40
+        DataSource: =Accounts
+        DefaultMode: =FormMode.New
+        Height: =313
+        NumberOfColumns: =2
+        UseFluentV9Cards: =true
+        Width: =671
+        X: =416
+        Y: =260
+        ZIndex: =10
+
+        Plan_DataCard1_3 As typedDataCard.fluentV9ComboBoxEditCard:
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Plan"
+            Default: =ThisItem.Plan
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,Plan)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =PlanValue_3.Selected
+            Width: =335
+            X: =1
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey26_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            PlanValue_3 As Combobox.pcfdataset:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Items: =Choices([@Accounts].Plan)
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey26_3.Y + DataCardKey26_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage25_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =PlanValue_3.Y + PlanValue_3.Height
+                ZIndex: =3
+
+            StarVisible25_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =20
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey26_3.Y
+                ZIndex: =4
+
+        "'First Name_DataCard3_3' As typedDataCard.fluentV9TextualEditCard":
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="first_name"
+            Default: =ThisItem.'First Name'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,'First Name')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, 'First Name')
+            Required: =false
+            Update: =FirstNameValue_3.Value
+            Width: =335
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+            DataCardKey19_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "FirstNameValue_3 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                BasePaletteColor: =
+                DisplayMode: =Parent.DisplayMode
+                FontColor: =
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey19_3.Y + DataCardKey19_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage18_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =FirstNameValue_3.Y + FirstNameValue_3.Height
+                ZIndex: =3
+
+            StarVisible18_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey19_3.Y
+                ZIndex: =4
+
+        "'Last Name_DataCard3_3' As typedDataCard.fluentV9TextualEditCard":
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="last_name"
+            Default: =ThisItem.'Last Name'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,'Last Name')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, 'Last Name')
+            Required: =false
+            Update: =LastNameValue_3.Value
+            Width: =335
+            X: =1
+            Y: =0
+            ZIndex: =11
+
+            DataCardKey20_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "LastNameValue_3 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                BasePaletteColor: =
+                DisplayMode: =Parent.DisplayMode
+                FontColor: =
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey20_3.Y + DataCardKey20_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage19_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =LastNameValue_3.Y + LastNameValue_3.Height
+                ZIndex: =3
+
+            StarVisible19_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey20_3.Y
+                ZIndex: =4
+
+        Email_DataCard3_3 As typedDataCard.fluentV9TextualEditCard:
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="email"
+            Default: =ThisItem.Email
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,Email)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, Email)
+            Required: =false
+            Update: =EmailValue_3.Value
+            Width: =335
+            X: =0
+            Y: =1
+            ZIndex: =11
+
+            DataCardKey21_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "EmailValue_3 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                BasePaletteColor: =
+                DisplayMode: =Parent.DisplayMode
+                FontColor: =
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                Type: ='TextInputCanvas.Type'.Text
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey21_3.Y + DataCardKey21_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage20_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =EmailValue_3.Y + EmailValue_3.Height
+                ZIndex: =3
+
+            StarVisible20_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey21_3.Y
+                ZIndex: =4
+
+        "'Phone Number_DataCard3_3' As typedDataCard.fluentV9TextualEditCard":
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="phone"
+            Default: =ThisItem.'Phone Number'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,'Phone Number')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, 'Phone Number')
+            Required: =false
+            Update: =PhoneNumberValue_3.Value
+            Width: =335
+            X: =1
+            Y: =1
+            ZIndex: =11
+
+            DataCardKey22_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "PhoneNumberValue_3 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                BasePaletteColor: =
+                DisplayMode: =Parent.DisplayMode
+                FontColor: =
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey22_3.Y + DataCardKey22_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage21_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =PhoneNumberValue_3.Y + PhoneNumberValue_3.Height
+                ZIndex: =3
+
+            StarVisible21_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey22_3.Y
+                ZIndex: =4
+
+        State_DataCard3_3 As typedDataCard.fluentV9ComboBoxEditCard:
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="state"
+            Default: =ThisItem.State
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,State)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =StateValue_3.Selected
+            Width: =335
+            X: =0
+            Y: =2
+            ZIndex: =11
+
+            DataCardKey23_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            StateValue_3 As Combobox.pcfdataset:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Items: =Choices([@Accounts].State)
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey23_3.Y + DataCardKey23_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage22_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =StateValue_3.Y + StateValue_3.Height
+                ZIndex: =3
+
+            StarVisible22_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =20
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey23_3.Y
+                ZIndex: =4
+
+        Gender_DataCard3_3 As typedDataCard.fluentV9ComboBoxEditCard:
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="gender"
+            Default: =ThisItem.Gender
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,Gender)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =GenderValue_3.Selected
+            Width: =335
+            X: =1
+            Y: =2
+            ZIndex: =11
+
+            DataCardKey24_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            GenderValue_3 As Combobox.pcfdataset:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Items: =Choices([@Accounts].Gender)
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey24_3.Y + DataCardKey24_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage23_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =GenderValue_3.Y + GenderValue_3.Height
+                ZIndex: =3
+
+            StarVisible23_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =20
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey24_3.Y
+                ZIndex: =4
+
+        "'Date of Birth_DataCard3_3' As typedDataCard.fluentV9DateEditCard":
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="birthday"
+            Default: =ThisItem.'Date of Birth'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Accounts],DataSourceInfo.DisplayName,'Date of Birth')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DateOfBirthValue_3.SelectedDate
+            Width: =335
+            X: =0
+            Y: =3
+            ZIndex: =11
+
+            DataCardKey25_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DateOfBirthValue_3 As 'Date picker'":
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BasePaletteColor: =
+                DisplayMode: =Parent.DisplayMode
+                EndDate: =Date(Year(Today())+100, 12, 31)
+                FontColor: =
+                Height: =32
+                SelectedDate: =Parent.Default
+                StartDate: =Date(1900, 1, 1)
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey25_3.Y + DataCardKey25_3.Height + 4
+                ZIndex: =2
+
+            ErrorMessage24_3 As Text:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DateOfBirthValue_3.Y + DateOfBirthValue_3.Height
+                ZIndex: =3
+
+            StarVisible24_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey25_3.Y
+                ZIndex: =4
+
+    Image1_2 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =103
+        Image: ='Screenshot_2024-05-08_at_12.40.34-removebg-preview'
+        Width: =111
+        X: =1012
+        Y: =691
+        ZIndex: =11
+

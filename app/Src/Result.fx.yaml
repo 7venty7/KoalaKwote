@@ -1,0 +1,95 @@
+"Result As screen.'printableLayout_A4Landscape_ver1.0'":
+    Fill: =Color.White
+    Height: =794
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =
+    Width: =1123
+
+    Icon1_2 As icon.CheckBadge:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =194
+        Icon: =Icon.CheckBadge
+        Width: =182
+        X: =470
+        Y: =223
+        ZIndex: =3
+
+    ButtonCanvas1_2 As Button:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =53
+        OnSelect: =Navigate(Verify)
+        Text: ="Proceed to log in"
+        Width: =212
+        X: =455
+        Y: =580
+        ZIndex: =5
+
+    Header2_12 As Header:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =75
+        IsLogoVisible: =false
+        IsProfilePictureVisible: =false
+        OnSelectLogo: =false
+        Title: =App.ActiveScreen.Name
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =6
+
+    TextCanvas3_1 As Text:
+        Align: ='TextCanvas.Align'.Center
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =92
+        Size: =36
+        Text: |-
+            =Concatenate("Your reference number is: ", signeduprefnum.'Reference Number')
+        Width: =608
+        X: =257
+        Y: =428
+        ZIndex: =7
+
+    TextCanvas4_1 As Text:
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =87
+        Size: =20
+        Text: ="Please save this number to log in"
+        Width: =294
+        X: =414
+        Y: =493
+        ZIndex: =8
+
+    Image1_3 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =103
+        Image: ='Screenshot_2024-05-08_at_12.40.34-removebg-preview'
+        Width: =111
+        X: =1012
+        Y: =691
+        ZIndex: =9
+
+    ButtonCanvas8_10 As Button:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =36
+        OnSelect: =Navigate(Home)
+        Text: ="Back to Home"
+        Width: =124
+        X: =980
+        Y: =21
+        ZIndex: =10
+

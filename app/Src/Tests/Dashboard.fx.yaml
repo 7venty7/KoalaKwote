@@ -1,0 +1,20 @@
+"'cc797e09-e320-43f6-84c5-978adf0dfebf' As TestSuite":
+    Description: =""
+    DisplayName: ="Dashboard"
+
+    "'d1701888-11d0-497d-8bd8-277d05da641c' As TestCase":
+        Description: =""
+        DisplayName: ="Update Details"
+
+    "'357cf38f-25d4-4138-94ea-ad207dc73d94' As TestCase":
+        Description: =""
+        DisplayName: ="Book Call"
+
+        Step1 As TestStep:
+            Description: ="New step"
+            Value: =
+
+    "'a31429ab-734f-4acc-8c7a-64a1d45aa3ae' As TestCase":
+        Description: =""
+        DisplayName: ="Pay Invoice"
+
