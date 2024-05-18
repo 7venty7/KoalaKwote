@@ -45,7 +45,7 @@
         Height: =32
         OnSelect: |-
             =
-            Set(quote, 1000 + If(StateValue_3.Selected.State.Value="NSW" Or StateValue_3.Selected.State.Value="VIC", 200, 0) + ((2024 - Year(DateOfBirthValue_3.SelectedDate)) * 10) * If(PlanValue_3.Selected.Value="Premium", 2, 1));
+            Set(quote, 1000 + If(StateValue_3.Selected.Value="NSW" Or StateValue_3.Selected.Value="VIC", 200, 0) + ((2024 - Year(DateOfBirthValue_3.SelectedDate)) * 10) * If(PlanValue_3.Selected.Value="Premium", 2, 1));
             
             Collect(Accounts, {
                 'First Name': FirstNameValue_3.Text, 'Last Name': LastNameValue_3.Text, Email: EmailValue_3.Text, 'Phone Number': PhoneNumberValue_3.Text, State: StateValue_3.Selected, Gender: GenderValue_3.Selected, 'Date of Birth':DateOfBirthValue_3.SelectedDate, Plan:PlanValue_3.Selected, 'Reference Number': Text(RandBetween(1000, 9999)), Quote: quote
@@ -146,18 +146,6 @@
                 Y: =10
                 ZIndex: =1
 
-            PlanValue_3 As Combobox.pcfdataset:
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                DefaultSelectedItems: =[Parent.Default]
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Items: =Choices([@Accounts].Plan)
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey26_3.Y + DataCardKey26_3.Height + 4
-                ZIndex: =2
-
             ErrorMessage25_3 As Text:
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -181,6 +169,29 @@
                 X: =0
                 Y: =DataCardKey26_3.Y
                 ZIndex: =4
+
+            PlanValue_3 As dropdown:
+                BorderColor: =App.Theme.Colors.Darker40
+                ChevronBackground: =App.Theme.Colors.Primary
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =App.Theme.Font
+                Height: =32
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Items: =Choices(Accounts.Plan)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =App.Theme.Colors.Darker30
+                SelectionFill: =App.Theme.Colors.Primary
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
 
         "'First Name_DataCard3_3' As typedDataCard.fluentV9TextualEditCard":
             BorderColor: =App.Theme.Colors.Darker40
@@ -526,7 +537,7 @@
                 Y: =DataCardKey23_3.Y
                 ZIndex: =4
 
-            StateValue_3 As combobox:
+            StateValue_3 As dropdown:
                 BorderColor: =App.Theme.Colors.Darker40
                 ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
@@ -536,21 +547,18 @@
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayFields: =["Value","QLD","TAS","WA","NT","SA"]
                 Font: =App.Theme.Font
                 Height: =32
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
-                Items: =Accounts
+                Items: =Choices(Accounts.State)
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =App.Theme.Colors.Darker30
-                SearchFields: =["ComplianceAssetId"]
-                SearchItems: =Search(Accounts,StateValue_3.SearchText,ComplianceAssetId)
                 SelectionFill: =App.Theme.Colors.Primary
                 Width: =287
                 X: =24
-                Y: =36
-                ZIndex: =6
+                Y: =38
+                ZIndex: =5
 
         Gender_DataCard3_3 As typedDataCard.fluentV9ComboBoxEditCard:
             BorderColor: =App.Theme.Colors.Darker40
@@ -616,6 +624,29 @@
                 Y: =DataCardKey24_3.Y
                 ZIndex: =4
 
+            StateValue_4 As dropdown:
+                BorderColor: =App.Theme.Colors.Darker40
+                ChevronBackground: =App.Theme.Colors.Primary
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =App.Theme.Font
+                Height: =32
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Items: =Choices(Accounts.Gender)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =App.Theme.Colors.Darker30
+                SelectionFill: =App.Theme.Colors.Primary
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
+
         "'Date of Birth_DataCard3_3' As typedDataCard.fluentV9DateEditCard":
             BorderColor: =App.Theme.Colors.Darker40
             BorderStyle: =BorderStyle.Solid
@@ -644,21 +675,6 @@
                 Y: =10
                 ZIndex: =1
 
-            "DateOfBirthValue_3 As 'Date picker'":
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                BasePaletteColor: =
-                DisplayMode: =Parent.DisplayMode
-                EndDate: =Date(Year(Today())+100, 12, 31)
-                FontColor: =
-                Height: =32
-                SelectedDate: =Parent.Default
-                StartDate: =Date(1900, 1, 1)
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey25_3.Y + DataCardKey25_3.Height + 4
-                ZIndex: =2
-
             ErrorMessage24_3 As Text:
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -682,6 +698,27 @@
                 X: =0
                 Y: =DataCardKey25_3.Y
                 ZIndex: =4
+
+            DateOfBirthValue_3 As datepicker:
+                BorderColor: =App.Theme.Colors.Darker40
+                CalendarHeaderFill: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DefaultDate: |-
+                    =Today()
+                    // If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =App.Theme.Font
+                Height: =32
+                HoverDateFill: =App.Theme.Colors.Lighter70
+                IconBackground: =App.Theme.Colors.Primary
+                SelectedDateFill: =App.Theme.Colors.Primary
+                Size: =11
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
 
     Image1_2 As image:
         BorderColor: =App.Theme.Colors.Darker40
