@@ -99,7 +99,7 @@
       "zeroalltabindexes": true
     },
     "Author": "",
-    "BindingErrorCount": 1,
+    "BindingErrorCount": 0,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "Phone",
@@ -122,7 +122,7 @@
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "New_Group17_Assignment2",
+    "AppName": "f138bebf-701a-4e1d-aba0-438c39d65e88",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",

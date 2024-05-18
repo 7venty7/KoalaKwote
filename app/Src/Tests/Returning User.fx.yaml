@@ -12,5 +12,9 @@
 
         Step2 As TestStep:
             Description: ="SetProperty("
-            Value: =SetProperty(TextInputCanvas1.Value, "johnsmith@gmail.com")
+            Value: =SetProperty(EmailVerify.Text, "johnsmith@gmail.com")
+
+        Step3 As TestStep:
+            Description: ="SetProperty(StateValue_3.SelectedItems, ""NSW"")"
+            Value: =SetProperty(StateValue_3.SelectedItems, "NSW")
 

@@ -14,39 +14,39 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Test_7F478737223C4B69.'b823a875-4dec-4a04-9800-b6cddc333dd1'.'6726ad7b-40bf-40ae-9d8c-2519273ee5d9'.Step2"
+                  "fullyQualifiedName": "Details.Form1_4.State_DataCard3_3.StateValue_3.SearchItems"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Test_7F478737223C4B69.'b823a875-4dec-4a04-9800-b6cddc333dd1'.'6726ad7b-40bf-40ae-9d8c-2519273ee5d9'.Step2",
+                  "fullyQualifiedName": "Details.Form1_4.State_DataCard3_3.StateValue_3.SearchItems",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 6,
-                  "charOffset": 28,
+                  "charLength": 17,
+                  "charOffset": 40,
                   "snippet": {
-                    "text": ".Value"
+                    "text": "ComplianceAssetId"
                   }
                 }
               },
               "properties": {
-                "member": "Step2",
-                "module": "Test_7F478737223C4B69",
-                "type": "Test_7F478737223C4B69.'b823a875-4dec-4a04-9800-b6cddc333dd1'.'6726ad7b-40bf-40ae-9d8c-2519273ee5d9'"
+                "member": "SearchItems",
+                "module": "Details",
+                "type": "Details.Form1_4.State_DataCard3_3.StateValue_3"
               }
             }
           ],
           "message": {
             "arguments": [
-              "TextInputCanvas1.Value"
+              "Search"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "High"
+            "level": "Medium"
           },
-          "ruleId": "app-ErrPropertyCannotBeSetInTestAutomation",
+          "ruleId": "app-SuggestRemoteExecutionHint",
           "ruleIndex": 0
         },
         {
@@ -264,19 +264,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Verify.Container1_1.TextInputCanvas1.AccessibleLabel"
+                  "fullyQualifiedName": "Details.Form1_4.'First Name_DataCard3_3'.FirstNameValue_3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Verify.Container1_1.TextInputCanvas1.AccessibleLabel",
+                  "fullyQualifiedName": "Details.Form1_4.'First Name_DataCard3_3'.FirstNameValue_3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Verify",
-                "type": "Verify.Container1_1.TextInputCanvas1"
+                "module": "Details",
+                "type": "Details.Form1_4.'First Name_DataCard3_3'.FirstNameValue_3"
               }
             }
           ],
@@ -294,19 +294,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Verify.Container1_1.TextInputCanvas2.AccessibleLabel"
+                  "fullyQualifiedName": "Details.Form1_4.'Last Name_DataCard3_3'.LastNameValue_3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Verify.Container1_1.TextInputCanvas2.AccessibleLabel",
+                  "fullyQualifiedName": "Details.Form1_4.'Last Name_DataCard3_3'.LastNameValue_3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Verify",
-                "type": "Verify.Container1_1.TextInputCanvas2"
+                "module": "Details",
+                "type": "Details.Form1_4.'Last Name_DataCard3_3'.LastNameValue_3"
               }
             }
           ],
@@ -534,19 +534,139 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Verify.Container1_1.TextInput2.AccessibleLabel"
+                  "fullyQualifiedName": "Verify.Container1_1.EmailVerify.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Verify.Container1_1.TextInput2.AccessibleLabel",
+                  "fullyQualifiedName": "Verify.Container1_1.EmailVerify.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Verify",
-                "type": "Verify.Container1_1.TextInput2"
+                "type": "Verify.Container1_1.EmailVerify"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Verify.Container1_1.RefVerify.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Verify.Container1_1.RefVerify.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Verify",
+                "type": "Verify.Container1_1.RefVerify"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Details.Form1_4.Email_DataCard3_3.EmailValue_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Details.Form1_4.Email_DataCard3_3.EmailValue_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Details",
+                "type": "Details.Form1_4.Email_DataCard3_3.EmailValue_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Details.Form1_4.'Phone Number_DataCard3_3'.PhoneNumberValue_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Details.Form1_4.'Phone Number_DataCard3_3'.PhoneNumberValue_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Details",
+                "type": "Details.Form1_4.'Phone Number_DataCard3_3'.PhoneNumberValue_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Details.Form1_4.State_DataCard3_3.StateValue_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Details.Form1_4.State_DataCard3_3.StateValue_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Details",
+                "type": "Details.Form1_4.State_DataCard3_3.StateValue_3"
               }
             }
           ],
@@ -596,15 +716,20 @@
           "name": "PowerApps app checker",
           "rules": [
             {
-              "id": "app-ErrPropertyCannotBeSetInTestAutomation",
+              "id": "app-SuggestRemoteExecutionHint",
               "messageStrings": {
                 "issue": {
-                  "text": "The property '{0}' cannot be used in test automation."
+                  "text": "Delegation warning. The \"{0}\" part of this formula might not work correctly on large data sets."
                 }
               },
               "properties": {
                 "componentType": "app",
-                "level": "High",
+                "howToFix": [
+                  "If your data set exceeds the 500 record limit but contains less than 2,000 records, try resetting the limit.",
+                  "Try simplifying the formula.",
+                  "Try moving your data to a different data source."
+                ],
+                "level": "Medium",
                 "primaryCategory": "formula",
                 "whyFix": ""
               }

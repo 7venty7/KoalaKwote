@@ -70,7 +70,7 @@
             FontColor: =
             Height: =32
             OnSelect: |-
-                =Set(userrolevalue,LookUp(Accounts,Email=TextInputCanvas1.Value And 'Reference Number'=TextInputCanvas2.Value));
+                =Set(userrolevalue,LookUp(Accounts,Email=EmailVerify.Text And 'Reference Number'=RefVerify.Text));
                 If(IsBlankOrError(userrolevalue), Notify("Incorrect email or reference number"), Navigate(Dashboard));
             Text: ="Log In"
             Width: =96
@@ -92,27 +92,11 @@
             Y: =53
             ZIndex: =6
 
-        "TextInputCanvas1 As 'Text input'":
-            DisplayMode: =DisplayMode.Edit
-            Height: =32
-            Width: =320
-            X: =81
-            Y: =173
-            ZIndex: =7
-
-        "TextInputCanvas2 As 'Text input'":
-            DisplayMode: =DisplayMode.Edit
-            Height: =32
-            Width: =320
-            X: =81
-            Y: =240
-            ZIndex: =8
-
-        TextInput2 As text:
+        EmailVerify As text:
             BorderColor: =App.Theme.Colors.Darker40
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
-            Default: ="Email"
+            Default: =
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -126,6 +110,25 @@
             X: =81
             Y: =173
             ZIndex: =9
+
+        RefVerify As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =App.Theme.Font
+            Height: =32
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            Size: =11
+            X: =81
+            Y: =240
+            ZIndex: =10
 
     Image1_1 As image:
         BorderColor: =App.Theme.Colors.Darker40

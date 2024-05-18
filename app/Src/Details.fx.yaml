@@ -45,13 +45,13 @@
         Height: =32
         OnSelect: |-
             =
-            Set(quote, 1000 + If(StateValue_3.Selected.Value="NSW" Or StateValue_3.Selected.Value="VIC", 200, 0) + ((2024 - Year(DateOfBirthValue_3.SelectedDate)) * 10) * If(PlanValue_3.Selected.Value="Premium", 2, 1));
+            Set(quote, 1000 + If(StateValue_3.Selected.State.Value="NSW" Or StateValue_3.Selected.State.Value="VIC", 200, 0) + ((2024 - Year(DateOfBirthValue_3.SelectedDate)) * 10) * If(PlanValue_3.Selected.Value="Premium", 2, 1));
             
             Collect(Accounts, {
-                'First Name': FirstNameValue_3.Value, 'Last Name': LastNameValue_3.Value, Email: EmailValue_3.Value, 'Phone Number': PhoneNumberValue_3.Value, State: StateValue_3.Selected, Gender: GenderValue_3.Selected, 'Date of Birth':DateOfBirthValue_3.SelectedDate, Plan:PlanValue_3.Selected, 'Reference Number': Text(RandBetween(1000, 9999)), Quote: quote
+                'First Name': FirstNameValue_3.Text, 'Last Name': LastNameValue_3.Text, Email: EmailValue_3.Text, 'Phone Number': PhoneNumberValue_3.Text, State: StateValue_3.Selected, Gender: GenderValue_3.Selected, 'Date of Birth':DateOfBirthValue_3.SelectedDate, Plan:PlanValue_3.Selected, 'Reference Number': Text(RandBetween(1000, 9999)), Quote: quote
             });
             
-            Set(signeduprefnum, LookUp(Accounts, Email=EmailValue_3.Value));
+            Set(signeduprefnum, LookUp(Accounts, Email=EmailValue_3.Text));
             
             Navigate(Result);
         Text: ="Submit Details"
@@ -193,7 +193,7 @@
             Height: =70
             MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, 'First Name')
             Required: =false
-            Update: =FirstNameValue_3.Value
+            Update: =FirstNameValue_3.Text
             Width: =335
             X: =0
             Y: =0
@@ -210,21 +210,6 @@
                 X: =24
                 Y: =10
                 ZIndex: =1
-
-            "FirstNameValue_3 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                BasePaletteColor: =
-                DisplayMode: =Parent.DisplayMode
-                FontColor: =
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey19_3.Y + DataCardKey19_3.Height + 4
-                ZIndex: =2
 
             ErrorMessage18_3 As Text:
                 DisplayMode: =DisplayMode.Edit
@@ -250,6 +235,26 @@
                 Y: =DataCardKey19_3.Y
                 ZIndex: =4
 
+            FirstNameValue_3 As text:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =App.Theme.Font
+                Height: =32
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Size: =11
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
+
         "'Last Name_DataCard3_3' As typedDataCard.fluentV9TextualEditCard":
             BorderColor: =App.Theme.Colors.Darker40
             BorderStyle: =BorderStyle.Solid
@@ -261,7 +266,7 @@
             Height: =70
             MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, 'Last Name')
             Required: =false
-            Update: =LastNameValue_3.Value
+            Update: =LastNameValue_3.Text
             Width: =335
             X: =1
             Y: =0
@@ -278,21 +283,6 @@
                 X: =24
                 Y: =10
                 ZIndex: =1
-
-            "LastNameValue_3 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                BasePaletteColor: =
-                DisplayMode: =Parent.DisplayMode
-                FontColor: =
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey20_3.Y + DataCardKey20_3.Height + 4
-                ZIndex: =2
 
             ErrorMessage19_3 As Text:
                 DisplayMode: =DisplayMode.Edit
@@ -318,6 +308,26 @@
                 Y: =DataCardKey20_3.Y
                 ZIndex: =4
 
+            LastNameValue_3 As text:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =App.Theme.Font
+                Height: =32
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Size: =11
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
+
         Email_DataCard3_3 As typedDataCard.fluentV9TextualEditCard:
             BorderColor: =App.Theme.Colors.Darker40
             BorderStyle: =BorderStyle.Solid
@@ -329,7 +339,7 @@
             Height: =70
             MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, Email)
             Required: =false
-            Update: =EmailValue_3.Value
+            Update: =EmailValue_3.Text
             Width: =335
             X: =0
             Y: =1
@@ -346,22 +356,6 @@
                 X: =24
                 Y: =10
                 ZIndex: =1
-
-            "EmailValue_3 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                BasePaletteColor: =
-                DisplayMode: =Parent.DisplayMode
-                FontColor: =
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                Type: ='TextInputCanvas.Type'.Text
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey21_3.Y + DataCardKey21_3.Height + 4
-                ZIndex: =2
 
             ErrorMessage20_3 As Text:
                 DisplayMode: =DisplayMode.Edit
@@ -387,6 +381,26 @@
                 Y: =DataCardKey21_3.Y
                 ZIndex: =4
 
+            EmailValue_3 As text:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =App.Theme.Font
+                Height: =32
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Size: =11
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
+
         "'Phone Number_DataCard3_3' As typedDataCard.fluentV9TextualEditCard":
             BorderColor: =App.Theme.Colors.Darker40
             BorderStyle: =BorderStyle.Solid
@@ -398,7 +412,7 @@
             Height: =70
             MaxLength: =DataSourceInfo([@Accounts], DataSourceInfo.MaxLength, 'Phone Number')
             Required: =false
-            Update: =PhoneNumberValue_3.Value
+            Update: =PhoneNumberValue_3.Text
             Width: =335
             X: =1
             Y: =1
@@ -415,21 +429,6 @@
                 X: =24
                 Y: =10
                 ZIndex: =1
-
-            "PhoneNumberValue_3 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                BasePaletteColor: =
-                DisplayMode: =Parent.DisplayMode
-                FontColor: =
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey22_3.Y + DataCardKey22_3.Height + 4
-                ZIndex: =2
 
             ErrorMessage21_3 As Text:
                 DisplayMode: =DisplayMode.Edit
@@ -454,6 +453,26 @@
                 X: =0
                 Y: =DataCardKey22_3.Y
                 ZIndex: =4
+
+            PhoneNumberValue_3 As text:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =App.Theme.Font
+                Height: =32
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Size: =11
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =5
 
         State_DataCard3_3 As typedDataCard.fluentV9ComboBoxEditCard:
             BorderColor: =App.Theme.Colors.Darker40
@@ -483,18 +502,6 @@
                 Y: =10
                 ZIndex: =1
 
-            StateValue_3 As Combobox.pcfdataset:
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                DefaultSelectedItems: =[Parent.Default]
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Items: =Choices([@Accounts].State)
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey23_3.Y + DataCardKey23_3.Height + 4
-                ZIndex: =2
-
             ErrorMessage22_3 As Text:
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -518,6 +525,32 @@
                 X: =0
                 Y: =DataCardKey23_3.Y
                 ZIndex: =4
+
+            StateValue_3 As combobox:
+                BorderColor: =App.Theme.Colors.Darker40
+                ChevronBackground: =App.Theme.Colors.Primary
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value","QLD","TAS","WA","NT","SA"]
+                Font: =App.Theme.Font
+                Height: =32
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Items: =Accounts
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =App.Theme.Colors.Darker30
+                SearchFields: =["ComplianceAssetId"]
+                SearchItems: =Search(Accounts,StateValue_3.SearchText,ComplianceAssetId)
+                SelectionFill: =App.Theme.Colors.Primary
+                Width: =287
+                X: =24
+                Y: =36
+                ZIndex: =6
 
         Gender_DataCard3_3 As typedDataCard.fluentV9ComboBoxEditCard:
             BorderColor: =App.Theme.Colors.Darker40
