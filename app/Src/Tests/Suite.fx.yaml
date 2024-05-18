@@ -6,7 +6,3 @@
         Description: =""
         DisplayName: ="Case"
 
-        Step1 As TestStep:
-            Description: =""
-            Value: =
-

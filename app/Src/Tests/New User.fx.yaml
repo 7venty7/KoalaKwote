@@ -6,11 +6,3 @@
         Description: =""
         DisplayName: ="New Form"
 
-        Step1 As TestStep:
-            Description: ="Select(ButtonCanvas2)"
-            Value: =Select(ButtonCanvas2)
-
-        Step2 As TestStep:
-            Description: ="SetProperty("
-            Value: =SetProperty(FirstNameValue_3.Value, "John")
-

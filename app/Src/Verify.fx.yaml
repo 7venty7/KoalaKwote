@@ -44,26 +44,6 @@
         Y: =230
         ZIndex: =11
 
-        "TextInputCanvas1 As 'Text input'":
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            Width: =320
-            X: =81
-            Y: =173
-            ZIndex: =1
-
-        "TextInputCanvas2 As 'Text input'":
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            Width: =320
-            X: =81
-            Y: =243
-            ZIndex: =2
-
         TextCanvas4_4 As Text:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
@@ -111,6 +91,22 @@
             X: =62
             Y: =53
             ZIndex: =6
+
+        "TextInputCanvas1 As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Width: =320
+            X: =81
+            Y: =173
+            ZIndex: =7
+
+        "TextInputCanvas2 As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Width: =320
+            X: =81
+            Y: =240
+            ZIndex: =8
 
     Image1_1 As image:
         BorderColor: =App.Theme.Colors.Darker40

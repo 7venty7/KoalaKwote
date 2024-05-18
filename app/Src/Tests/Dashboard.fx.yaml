@@ -10,10 +10,6 @@
         Description: =""
         DisplayName: ="Book Call"
 
-        Step1 As TestStep:
-            Description: ="New step"
-            Value: =
-
     "'a31429ab-734f-4acc-8c7a-64a1d45aa3ae' As TestCase":
         Description: =""
         DisplayName: ="Pay Invoice"
